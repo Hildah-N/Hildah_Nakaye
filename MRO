@@ -1,0 +1,19 @@
+class Vehicle:
+    def start(self):
+        return "Vehicle starting"
+
+class Car(Vehicle):
+    def start(self):
+        return "Car engine starting"
+
+class Electric(Vehicle):
+    def start(self):
+        return "Electric motor starting"
+
+class Tesla(Car, Electric):  # Multiple inheritance
+    pass
+
+# MRO: Tesla -> Car -> Electric -> Vehicle -> object
+tesla = Tesla()
+print(tesla.start())  # "Car engine starting" (Car comes first)
+print(Tesla.__mro__)  # (<class 'Tesla'>, <class 'Car'>, <class 'Electric'>, <class 'Vehicle'>, <class 'object'>)
